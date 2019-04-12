@@ -33,7 +33,7 @@ sourcepawn/spcomp
 sourcepawn/spcomp.exe
 sourcepawn/compile.exe
 sourcepawn/compile.dat
-sourcepawn/compiled/*
+sourcepawn/compiled
 sourcepawn/include/admin.inc
 sourcepawn/include/adminmenu.inc
 sourcepawn/include/adt.inc
@@ -62,7 +62,6 @@ sourcepawn/include/functions.inc
 sourcepawn/include/geoip.inc
 sourcepawn/include/halflife.inc
 sourcepawn/include/handles.inc
-sourcepawn/helpers.inc
 sourcepawn/include/keyvalues.inc
 sourcepawn/include/lang.inc
 sourcepawn/include/logging.inc
