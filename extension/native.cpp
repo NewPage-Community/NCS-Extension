@@ -98,9 +98,8 @@ static cell_t Json_GetInt(IPluginContext * pContext, const cell_t * params)
 	pContext->LocalToString(params[2], &key);
 
 	// Return
-	int i;
-	if (!obj->GetInt(i, key))
-		pContext->ThrowNativeError("<Object> is not int or not exist.");
+	int i = -1;
+	obj->GetInt(i, key);
 
 	return i;
 }
@@ -120,13 +119,9 @@ static cell_t Json_GetString(IPluginContext * pContext, const cell_t * params)
 
 	// Return
 	std::string str;
-	if (obj->GetString(str, key))
-	{
-		pContext->StringToLocalUTF8(params[2], params[3], str.data(), NULL);
-		return str.length();
-	}
-	else
-		pContext->ThrowNativeError("<Object> is not string or not exist.");
+	obj->GetString(str, key);
+	pContext->StringToLocalUTF8(params[2], params[3], str.data(), NULL);
+	return str.length();
 
 	return -1;
 }
@@ -145,9 +140,8 @@ static cell_t Json_GetFloat(IPluginContext * pContext, const cell_t * params)
 	pContext->LocalToString(params[2], &key);
 
 	// Return
-	double d;
-	if (!obj->GetDouble(d, key))
-		pContext->ThrowNativeError("<Object> is not double or not exist.");
+	double d = -1.0;
+	obj->GetDouble(d, key);
 
 	return sp_ftoc((float)d);
 }
@@ -194,9 +188,8 @@ static cell_t Json_GetArraySize(IPluginContext * pContext, const cell_t * params
 	pContext->LocalToString(params[2], &key);
 
 	// Return
-	int i;
-	if (!obj->GetArraySize(i, key))
-		pContext->ThrowNativeError("<Object> is not array or not exist.");
+	int i = -1;
+	obj->GetArraySize(i, key);
 
 	return i;
 }
@@ -260,9 +253,8 @@ static cell_t Json_GetBool(IPluginContext * pContext, const cell_t * params)
 	pContext->LocalToString(params[2], &key);
 
 	// Return
-	bool b;
-	if (!obj->GetBool(b, key))
-		pContext->ThrowNativeError("<Object> is not int or not exist.");
+	bool b = false;
+	obj->GetBool(b, key);
 
 	return b;
 }
