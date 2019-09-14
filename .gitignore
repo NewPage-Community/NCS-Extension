@@ -26,6 +26,7 @@ Temporary Items
 .vs
 extension/msvc/Debug
 extension/msvc/Release
+extension/msvc/boost
 
 # Sourcemod
 sourcepawn/compile.sh

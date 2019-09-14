@@ -39,8 +39,8 @@
 
 /* Basic information exposed publicly */
 #define SMEXT_CONF_NAME			"NewPage Core System Extension"
-#define SMEXT_CONF_DESCRIPTION	"NewPage Core System API"
-#define SMEXT_CONF_VERSION		"1.0.1"
+#define SMEXT_CONF_DESCRIPTION	"NewPage Core System API client"
+#define SMEXT_CONF_VERSION		"1.0.2"
 #define SMEXT_CONF_AUTHOR		"Gunslinger"
 #define SMEXT_CONF_URL			"https://new-page.xyz/"
 #define SMEXT_CONF_LOGTAG		"NCS"

@@ -59,11 +59,17 @@ void WS_Error(const char* error)
 	g_pSM->LogError(myself, "Websocket Errro: %s", error);
 }
 
-void StartWebSocket()
+void ConnectWS()
 {
 	// Create WebSocket
 	g_websocket = new WebSocket(WS_Error, WS_Open, WS_Fail, WS_Close, WS_Msg);
-	g_websocket->connect("127.0.0.1:1234");
+	const char* uri = smutils->GetCoreConfigValue("NCS_Server");
+	g_websocket->connect(uri == nullptr ? "127.0.0.1:1234" : uri);
+}
+
+void StartWebSocket()
+{
+	ConnectWS();
 
 	// Add Forward
 	g_OnReceivedMsg = forwards->CreateForward("NCS_OnReceivedMsg", ET_Ignore, 2, NULL, Param_String, Param_Cell);
@@ -142,10 +148,6 @@ bool SendQuery(std::string str)
 ResultType WebSocketReconnect::OnTimer(ITimer* pTimer, void* pData)
 {
 	g_pSM->LogMessage(myself, "Reconnect WebSocket server ...");
-
-	// Create WebSocket
-	g_websocket = new WebSocket(WS_Error, WS_Open, WS_Fail, WS_Close, WS_Msg);
-	g_websocket->connect("127.0.0.1:1234");
-
+	ConnectWS();
 	return Pl_Stop;
 }
