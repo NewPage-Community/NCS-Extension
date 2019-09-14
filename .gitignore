@@ -24,9 +24,9 @@ Temporary Items
 .apdisk
 .vscode
 .vs
-extension/msvc/Debug
-extension/msvc/Release
-extension/msvc/boost
+msvc/Debug
+msvc/Release
+msvc/boost
 
 # Sourcemod
 sourcepawn/compile.sh
