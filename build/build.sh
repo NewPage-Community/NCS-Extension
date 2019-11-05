@@ -15,7 +15,7 @@ cd "$DEPS_DIR" || exit
 echo "Building Boost"
 if [[ ! -d "boost" ]]; then
 	if [[ ! -f "boost_1_69_0.tar.gz" ]]; then
-		wget -e "http_proxy=$PROXY_URL" https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.gz && tar -xzf boost_1_69_0.tar.gz
+		wget -e "http_proxy=$PROXY_URL" https://github.com/boostorg/boost/archive/boost-1.69.0.tar.gz && tar -xzf boost_1_69_0.tar.gz
 	fi
 	cd boost_1_69_0
 	./bootstrap.sh --with-libraries=date_time,random,regex,system --with-toolset=gcc
