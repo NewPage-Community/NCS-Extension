@@ -1,8 +1,8 @@
-#if defined _NCS_Include_
+#if defined _NCS_Ext_Include_
 	#endinput
 #endif
 
-#define _NCS_Include
+#define _NCS_Ext_Include_
 
 #pragma newdecls required
 
@@ -12,16 +12,12 @@
 methodmap NCSMsgRev < Handle
 {
 	public native NCSMsgRev(const char[] json); // Read Message
-	// return NCSMsgRev
 
-	// Data
 	public native int GetInt(const char[] key = "");
 	public native int GetString(char[] str, int size, const char[] key = ""); //Return: str length (invaild = -1)
 	public native int GetArraySize(const char[] key = "");
 	public native int GetJson(char[] str, int size);
-
 	public native float GetFloat(const char[] key = "");
-
 	public native bool GetBool(const char[] key = "");
 
 	public native NCSMsgRev GetArray(int index, const char[] key = "");
@@ -32,11 +28,9 @@ methodmap NCSMsgRev < Handle
 methodmap NCSMsgSend < Handle
 {
 	public native NCSMsgSend(const char[] router); // Init Message to send
-	// return NCSMsgSend
 
 	public native bool SendMsg(); // Send Message to backend
 
-	// Import Data
 	public native void Int(int i, const char[] key = "");
 	public native void String(const char[] str, const char[] key = "");
 	public native void Float(float f, const char[] key = "");
@@ -47,7 +41,7 @@ methodmap NCSMsgSend < Handle
 	public native void EndObject();
 };
 
-// This forward do not need to delete NCSMsgRev handle(Auto Free)
+// This forward will auto clean the NCSMsgRev handle, do not need to delete!
 forward void NCS_OnReceivedMsg(const char[] router, NCSMsgRev msg);
 
 // Call when backend is connected
