@@ -36,7 +36,7 @@ void WS_Fail(const char* error)
 	g_pSM->LogError(myself, "WebSocket connection faild! Error: %s", error);
 
 	// Reconnect after 5s
-	timersys->CreateTimer(new WebSocketReconnect(), 5.0, nullptr, NULL);
+	timersys->CreateTimer(new WebSocketReconnect(), 5.0, nullptr, 0);
 }
 
 void WS_Close(const char* reason)
@@ -44,7 +44,7 @@ void WS_Close(const char* reason)
 	g_pSM->LogMessage(myself, "WebSocket connection closed! Reason: %s", reason);
 
 	// Reconnect after 5s
-	timersys->CreateTimer(new WebSocketReconnect(), 5.0, nullptr, NULL);
+	timersys->CreateTimer(new WebSocketReconnect(), 5.0, nullptr, 0);
 
 	g_DisconnectedCall = true;
 }
