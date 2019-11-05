@@ -20,7 +20,7 @@ if [[ ! -d "boost" ]]; then
 	cd boost_1_69_0
 	./bootstrap.sh --with-libraries=date_time,random,regex,system --with-toolset=gcc
 	./b2 install --prefix="$DEPS_DIR/boost"
-	cd "$NCS_DIR" || exit
+	cd "$DEPS_DIR" || exit
 fi
 
 # SourceMod
