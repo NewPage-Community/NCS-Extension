@@ -15,10 +15,10 @@ cd "$DEPS_DIR" || exit
 echo "Building Boost"
 if [[ ! -d "boost" ]]; then
 	if [[ ! -f "boost_1_69_0.tar.gz" ]]; then
-		wget https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.gz && tar -xzf boost_1_69_0.tar.gz
+		wget -q https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.gz && tar -xzf boost_1_69_0.tar.gz
 	fi
 	cd boost_1_69_0
-	./bootstrap.sh --with-libraries=all --with-toolset=gcc
+	./bootstrap.sh --with-libraries=date_time,random,regex,system --with-toolset=gcc
 	./b2 install --prefix="$DEPS_DIR/boost"
 	cd "$NCS_DIR" || exit
 fi
