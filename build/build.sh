@@ -26,6 +26,8 @@ fi
 # SourceMod
 echo "Getting SourceMod"
 if [[ ! -d "sourcemod" ]]; then
+	git config --global http.proxy $HTTP_PROXY
+	git config --global https.proxy $HTTPS_PROXY
 	git clone https://github.com/alliedmodders/sourcemod --recursive --branch "$SMBRANCH"
 fi
 
