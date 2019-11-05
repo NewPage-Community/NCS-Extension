@@ -105,3 +105,6 @@ sourcepawn/include/version.inc
 sourcepawn/include/version_auto.inc
 sourcepawn/include/helpers.inc
 sourcepawn/include/sdktools_variant_t.inc
+
+deps
+Release
