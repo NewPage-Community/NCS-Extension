@@ -12,10 +12,10 @@ fi
 cd "$DEPS_DIR" || exit
 
 # Boost
-echo "Building Boost"
+echo "Install Boost"
 if [[ ! -d "boost" ]]; then
-	if [[ ! -f "boost_1_69_0.tar.gz" ]]; then
-		wget -q -e "http_proxy=$PROXY_URL" https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.gz && tar -xzf boost_1_69_0.tar.gz
+	if [[ ! -d "boost_1_69_0" ]]; then
+		tar -xzf boost_1_69_0.tar.gz
 	fi
 	cd boost_1_69_0
 	./bootstrap.sh --with-libraries=date_time,random,regex,system --with-toolset=gcc
@@ -24,11 +24,9 @@ if [[ ! -d "boost" ]]; then
 fi
 
 # SourceMod
-echo "Getting SourceMod"
+echo "Install SourceMod"
 if [[ ! -d "sourcemod" ]]; then
-	git config --global http.proxy "$PROXY_URL"
-	git config --global https.proxy "$PROXY_URL"
-	git clone https://github.com/alliedmodders/sourcemod --recursive --branch "$SMBRANCH"
+	tar -xzf sourcemod.tar.gz
 fi
 
 echo "Building extension"
