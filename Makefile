@@ -38,9 +38,10 @@ CPP_OSX = clang
 INCLUDE += -I$(BOOST)/include
 LINK += -L$(BOOST)/lib
 
+# SDK
 INCLUDE += -I. -I.. -Isdk -I$(SMSDK)/public -I$(SMSDK)/public/amtl  -I$(SMSDK)/public/amtl/amtl -I$(SMSDK)/sourcepawn/include -I$(SMSDK)/core -I$(SMSDK)/public/sourcepawn
 
-LINK += -m32 -lm -ldl -l
+LINK += -m32 -lm -ldl
 
 CFLAGS += -DPOSIX -Dstricmp=strcasecmp -D_stricmp=strcasecmp -D_strnicmp=strncasecmp -Dstrnicmp=strncasecmp \
 	-D_snprintf=snprintf -D_vsnprintf=vsnprintf -D_alloca=alloca -Dstrcmpi=strcasecmp -DCOMPILER_GCC -Wall -Werror \
