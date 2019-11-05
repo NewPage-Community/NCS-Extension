@@ -7,7 +7,7 @@ before_script:
 build:
   stage: build
   script:
-    - ./build/build.sh
+    - chmod +x ./build/build.sh && ./build/build.sh
   artifacts:
     paths:
       - Release
