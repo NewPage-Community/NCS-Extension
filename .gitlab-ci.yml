@@ -2,7 +2,7 @@ image: gcc
 
 before_script:
   - sed -i 's@/deb.debian.org/@/mirrors.aliyun.com/@g;s@/security.debian.org/@/mirrors.aliyun.com/@g' /etc/apt/sources.list
-  - apt update && apt -y install make autoconf lib32stdc++-4.8-dev:i386 lib32z1:i386 lib32z1-dev:i386 libc6-dev-i386 libc6-i386
+  - apt update && apt -y install make autoconf lib32stdc++ lib32z1 lib32z1-dev:i386 libc6-dev-i386 libc6-i386
 
 build:
   stage: build
