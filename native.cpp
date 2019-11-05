@@ -74,7 +74,7 @@ static cell_t Msg_Read(IPluginContext* pContext, const cell_t* params)
 
 	rapidjson::Document document;
 	if (document.Parse(json).HasParseError() || !document.IsObject())
-		return NULL;
+		return BAD_HANDLE;
 
 	Handle_t hndl = g_pHandleSys->CreateHandleEx(g_MsgRevType, new MsgRevJson(document, document.GetAllocator()), &sec, NULL, NULL);
 
