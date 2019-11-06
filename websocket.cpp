@@ -7,6 +7,8 @@
 // Async times per tick
 #define ASYNCTIMES 50
 
+#define WS_URI "ncs-backend.ncs"
+
 // WebSocket
 WebSocket* g_websocket;
 
@@ -64,7 +66,7 @@ void ConnectWS()
 	// Create WebSocket
 	g_websocket = new WebSocket(WS_Error, WS_Open, WS_Fail, WS_Close, WS_Msg);
 	const char* uri = smutils->GetCoreConfigValue("NCS_Server");
-	g_websocket->connect(uri == nullptr ? "127.0.0.1:1234" : uri);
+	g_websocket->connect(uri == nullptr ? WS_URI : uri);
 }
 
 void StartWebSocket()
