@@ -36,7 +36,8 @@ CPP_OSX = clang
 
 # Custom
 INCLUDE += -I$(BOOST)/include
-LINK += -L$(BOOST)/lib -lrt -static-libgcc -static-libstdc++
+LINK += -L$(BOOST)/lib -lrt -lstdc++
+CPPFLAGS += -D_GLIBCXX_USE_CXX11_ABI=0
 
 # SDK
 INCLUDE += -I. -I.. -Isdk -I$(SMSDK)/public -I$(SMSDK)/public/amtl  -I$(SMSDK)/public/amtl/amtl -I$(SMSDK)/sourcepawn/include -I$(SMSDK)/core -I$(SMSDK)/public/sourcepawn
