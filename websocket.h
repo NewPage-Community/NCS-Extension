@@ -58,20 +58,24 @@ public:
 
 	void close(websocketpp::close::status::value code)
 	{
-		websocketpp::lib::error_code ec;
 		if (m_connected)
-			m_endpoint.close(m_hdl, code, "", ec);
-
-		m_connected = false;
-
-		if (ec)
-			(*m_errorhandler)(ec.message().data());
+        {
+            websocketpp::lib::error_code ec;
+            m_endpoint.close(m_hdl, code, "", ec);
+            if (ec)
+			    (*m_errorhandler)(ec.message().data());
+        }
 	}
 
 	void send(std::string message)
 	{
 		if (m_connected)
-			m_endpoint.send(m_hdl, message, websocketpp::frame::opcode::text);
+        {
+            websocketpp::lib::error_code ec;
+            m_endpoint.send(m_hdl, message, websocketpp::frame::opcode::text);
+            if (ec)
+                (*m_errorhandler)(ec.message().data());
+        }
 	}
 
 	void on_open(websocketpp::connection_hdl hdl)
