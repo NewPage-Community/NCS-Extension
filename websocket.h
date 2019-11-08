@@ -72,7 +72,7 @@ public:
 		if (m_connected)
         {
             websocketpp::lib::error_code ec;
-            m_endpoint.send(m_hdl, message, websocketpp::frame::opcode::text);
+            m_endpoint.send(m_hdl, message, websocketpp::frame::opcode::text, ec);
             if (ec)
                 (*m_errorhandler)(ec.message().data());
         }
