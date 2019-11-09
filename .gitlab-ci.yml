@@ -2,7 +2,7 @@ image: debian:stretch-slim
 
 before_script:
   - sed -i 's@/deb.debian.org/@/mirrors.aliyun.com/@g;s@/security.debian.org/@/mirrors.aliyun.com/@g' /etc/apt/sources.list
-  - apt-get update && apt-get install -y --no-install-recommends lib32stdc++6 gcc-multilib g++-multilib make
+  - apt-get update && apt-get install -y --no-install-recommends lib32stdc++6 g++-multilib make
 
 build:
   stage: build
