@@ -14,7 +14,7 @@ cd "$DEPS_DIR" || exit
 # SourceMod
 echo "Install SourceMod"
 if [[ ! -d "sourcemod" ]]; then
-	wget -O -q sourcemod.zip https://raw.new-page.xyz/sourcemod/sourcemod-6d2e0aa.zip
+	wget -O sourcemod.zip -q https://raw.new-page.xyz/sourcemod/sourcemod-6d2e0aa.zip
 	unzip sourcemod.zip
 fi
 
