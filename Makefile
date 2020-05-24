@@ -6,7 +6,6 @@
 ###########################################
 
 SMSDK = ./deps/sourcemod
-BOOST = ./deps/boost
 
 #####################################
 ### EDIT BELOW FOR OTHER PROJECTS ###
@@ -35,8 +34,8 @@ CPP_OSX = clang
 ##########################
 
 # Custom
-INCLUDE += -I$(BOOST)/include
-LINK += -L$(BOOST)/lib -lrt -lstdc++
+INCLUDE += -I./asio
+LINK += -lrt -lstdc++
 CPPFLAGS += -D_GLIBCXX_USE_CXX11_ABI=0
 
 # SDK

@@ -1,6 +1,8 @@
 #ifndef NCS_WEBSOCKET_H
 #define NCS_WEBSOCKET_H
 
+#define ASIO_STANDALONE
+
 //Websocketpp
 #include <websocketpp/config/asio_no_tls_client.hpp>
 #include <websocketpp/client.hpp>

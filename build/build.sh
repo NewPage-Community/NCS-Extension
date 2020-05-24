@@ -11,22 +11,11 @@ fi
 
 cd "$DEPS_DIR" || exit
 
-# Boost
-echo "Install Boost"
-if [[ ! -d "boost" ]]; then
-	if [[ ! -d "boost_1_69_0" ]]; then
-		tar -xzf boost_1_69_0.tar.gz
-	fi
-	cd boost_1_69_0
-	./bootstrap.sh --with-libraries=date_time,random,regex,system --with-toolset=gcc
-	./b2 install --prefix="$DEPS_DIR/boost"
-	cd "$DEPS_DIR" || exit
-fi
-
 # SourceMod
 echo "Install SourceMod"
 if [[ ! -d "sourcemod" ]]; then
-	tar -xzf sourcemod.tar.gz
+	wget -O sourcemod.zip https://raw.new-page.xyz/sourcemod/sourcemod-6d2e0aa.zip
+	unzip sourcemod.zip
 fi
 
 echo "Building extension"
