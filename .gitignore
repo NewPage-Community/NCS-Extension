@@ -107,3 +107,4 @@ sourcepawn/include/helpers.inc
 sourcepawn/include/sdktools_variant_t.inc
 
 deps
+Release

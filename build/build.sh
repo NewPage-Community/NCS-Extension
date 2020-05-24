@@ -20,4 +20,4 @@ fi
 
 echo "Building extension"
 cd "$NCS_DIR" || exit
-make SMSDK="$DEPS_DIR/sourcemod" BOOST="$DEPS_DIR/boost"
+make SMSDK="$DEPS_DIR/sourcemod"
